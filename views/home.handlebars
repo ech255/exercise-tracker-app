@@ -1,0 +1,60 @@
+<h1>HW Assignment 6: Database interactions and UI</h1>
+<h3>Enter New Exercise</h3>
+<form id="post-form">
+    <div>
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="reps">Reps: </label>
+        <input type="text" id="reps" name="reps">
+    </div>
+    <div>
+        <label for="weight">Weight: </label>
+        <input type="text" id="weight" name="weight">
+    </div>
+        <label for="date">Date: </label>
+        <input type="date" id="date" name="date">
+    <div>
+        <label for="lbs">Unit: </label>
+        <div id="radio-container">
+            <div class="radio-div">
+                <input type="radio" id="lb" name="lbs" value="1">
+                <label for="lb">lb</label>
+            </div>
+            <div class="radio-div">
+                <input type="radio" id="kg" name="lbs" value="0">
+                <label for="kg">kg</label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input id="submitInsert" type="submit" value="Submit">
+    </div>
+</form>
+
+<h3>Completed Exercises</h3>
+<table id="workoutTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Reps</th>
+            <th>Weight</th>
+            <th>Date</th>                
+            <th>lbs</th>
+        </tr>
+    </thead>
+    <tbody id="workoutTableBody">
+        {{#each selectRows}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.reps}}</td>
+                <td>{{this.weight}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.lbs}}</td>
+                <td><input type="button" class="edit-button" id="edit-{{this.id}}" name="edit-{{this.id}}" value="Edit"></td>
+                <td><input type="button" class="delete-button" id="delete-{{this.id}}" name="delete-{{this.id}}" value="Delete"></td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
